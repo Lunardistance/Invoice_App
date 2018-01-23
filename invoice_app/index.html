@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet">
+    <title>Invoice App</title>
+    <style>
+        body {
+            margin: 10% 4% 4% 4%;
+            /* Q6 */
+            background-color:rgb(129, 135, 143);
+            border: 1px solid black;
+            margin-bottom: 2vh;
+        }
+
+        .slogan{
+            display: flex;
+            height: 5vh;
+            margin-top: 0vh;
+            margin-bottom: 3vh;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lucida Sans'
+
+        }
+            /*  Q8, 9, 10, 11, 12 */
+        .title{
+            display: flex;
+            height: 5vh;
+            margin-top: 4vh;
+            font-size: 25px;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lucida Grande'
+
+        }
+
+        .userContainer {
+            display: flex;
+            height: 55vh;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .invoiceContainer {
+            /* Q1 */
+            margin-top: 0vh;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: auto;
+            /* Q2 */
+            justify-content: center;
+            
+        }
+
+        .userProfile {
+            border: 1px solid black;
+            display: flex;
+            width: 60%;
+            height: 100%;
+            /* Q5 */
+            background-color: rgb(23, 21, 16);
+        }
+
+        .user {
+            height: auto;
+        }
+
+        #picContainer {
+            width: 40%;
+            margin: 8% 0% 8% 3%;
+            /* Change 13 */
+            background-color: rgb(23, 21, 16);
+        }
+
+        #infoContainer {
+            margin: 5% 2% 0% 2%;
+            width: 60%;
+            font-family: 'Lucida Grande';
+            font-size: 16px;
+            color: white;
+            /* Q4 */
+            background-color: rgb(23, 21, 16);
+        }
+
+        p {
+            font-size: 22px;
+        }
+
+        img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .invoice {
+            border: 1px solid black;
+            margin: 3% 3% 2% 3%;
+            padding: 2%;
+            width: 250px;
+            height: auto;
+            /* Q3 */
+            border: 10px solid black;
+            /* Q7 */
+            background-color:rgb(235, 235, 235);
+            font-family: 'Lucida Grande'
+
+        }
+
+        .invoice>p {
+            position: relative;
+            margin: 6px;
+            left: 25%;
+            font-size: 18px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <div class=slogan>It's All About The Music</div>
+
+    <div class="userContainer">
+        <!-- user profile -->
+        <div class="userProfile">
+            <!-- Inside user profile I need a picture container -->
+            <div class="user" id="picContainer">
+                    <img src="https://geo-media.beatport.com/image/b4ff7370-d08e-4060-99c5-261d24b6cc88.jpg" alt="Explode Your Mind">
+            </div>
+            <!-- Adding Image -->
+            
+            <!-- Then add info container -->
+            <div class="user" id="infoContainer">
+                Name:
+                <p class="name"></p>
+                Company Name:
+                <p class="company_name"></p>
+                Address:
+                <p class="Address"></p>
+                Email:
+                <p class="Email"></p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="title">Invoices</div>
+    
+<div class="invoiceContainer">
+        
+</div>
+        
+    <script>
+        //Fake it til you make it Database
+        var user = {
+            name: "Gabriel Luciano",
+            companyName: "Mindshake",
+            address: "8400 NW 36 ST, Miami, FL 33166",
+            email: "gluciano@techlaunch.io",
+            picture: ""
+        }
+
+        var invoices = [
+            {
+                inv_id: "0156321",
+                companyName: user.companyName,
+                date: "9/7/2017",
+                order: "Nitro",
+                amount: 3,
+                cost: 3457.67,
+                paid: 3457.67
+            },
+            {
+                inv_id: "0145632",
+                companyName: user.companyName,
+                date: "1/5/2017",
+                order: "Black Confetti",
+                amount: 2,
+                cost: 248.00,
+                paid: 248.00
+            },
+            {
+                inv_id: "0134780",
+                companyName: user.companyName,
+                date: "6/14/2016",
+                order: "Speakers",
+                amount: 1,
+                cost: 8000.00,
+                paid: 8000.00
+            },
+            {
+                inv_id: "0576284",
+                companyName: user.companyName,
+                date: "6/14/2016",
+                order: "Liqour",
+                amount: 250,
+                cost: 2000.00,
+                paid: 800.00
+            },
+            {
+                inv_id: "0288788",
+                companyName: user.companyName,
+                date: "6/14/2016",
+                order: "Lights",
+                amount: 12,
+                cost: 4420.00,
+                paid: 475.00
+            },
+            {
+                inv_id: "8730901",
+                companyName: user.companyName,
+                date: "6/14/2016",
+                order: "Black Jumbo Balloons",
+                amount: 18,
+                cost: 950.00,
+                paid: 655.00
+            }
+            
+
+        ]
+
+
+        //element selectors
+        document.querySelector(".name").textContent = user.name
+        document.querySelector(".company_name").textContent = user.companyName
+        document.querySelector(".Address").textContent = user.address
+        document.querySelector(".Email").textContent = user.email
+
+        //adding invoices
+        for (var i = 0; i < invoices.length; i++) {
+            document.querySelector('.invoiceContainer').innerHTML += `
+            <div class="invoice" id=${invoices[i].inv_id}>
+                Invoice #:   <br/>    
+                <p>${invoices[i].inv_id} </p>
+                Company Name:   <br /> 
+                <p>${invoices[i].companyName} </p>
+                Date:  <br />
+                <p> ${invoices[i].date} </p>
+                Order:  <br />   
+                <p>${invoices[i].order} </p>
+                Amount:   <br />     
+                <p>${invoices[i].amount} </p>
+                Cost:       <br />    
+                <p>$${invoices[i].cost} </p>
+                Paid:       <br />   
+                <p> $${invoices[i].paid} </p>
+                Owed:        <br />   
+                <p>$${invoices[i].cost-invoices[i].paid} </p>
+            </div>
+            `
+        }
+
+
+    </script>
+</body>
+
+</html>
